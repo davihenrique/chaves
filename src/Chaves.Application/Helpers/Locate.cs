@@ -4,7 +4,7 @@ namespace Chaves.Application.Helpers
 {
     public class Locate
     {
-        public string LocateName { get; set; }
+        public string? LocateName { get; set; }
         public XmlDocument Xml { get; set; }
         public Locate(string locateName)
         {
@@ -12,11 +12,21 @@ namespace Chaves.Application.Helpers
             Xml.Load(locateName);
         }
 
-        public string LocateText(string tag)
+        public XmlDocument GetXml()
+        {
+            return Xml;
+        }
+
+        public static string LocateText(string tag, XmlDocument xml)
         {
             try
             {
-                return Xml.DocumentElement.SelectSingleNode(tag).InnerText;
+                var retorno = xml.DocumentElement?.SelectSingleNode(tag)?.InnerText;
+
+                if (retorno is null)
+                    return "ERROR XML NULO";
+
+                return retorno;
             }
             catch (NullReferenceException)
             {

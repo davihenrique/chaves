@@ -4,11 +4,11 @@
     {
         public static void PrintTxtN(Locate locate, string xmlTag)
         {
-            System.Console.WriteLine(locate.LocateText(xmlTag));
+            System.Console.WriteLine(Locate.LocateText(xmlTag, locate.GetXml()));
         }
         public static void PrintTxt(Locate locate, string xmlTag)
         {
-            System.Console.Write(locate.LocateText(xmlTag));
+            System.Console.Write(Locate.LocateText(xmlTag, locate.GetXml()));
         }
         public static void QubraLinha()
         {

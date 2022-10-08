@@ -1,5 +1,10 @@
-﻿using Chaves.Application.Helpers;
+﻿using System.Xml;
+using System.Data;
+using System.ComponentModel;
+using System.Xml.Linq;
+using Chaves.Application.Helpers;
 using Chaves.Application.Screens;
+using Chaves.Application.Read;
 
 namespace Chaves.Application
 {
@@ -11,20 +16,14 @@ namespace Chaves.Application
 
             Screen.TelaInicio(locateXml);
 
-            var x = Console.ReadLine();
+            var press = ReadTerminal.Read();
 
-            if (Press.PesquisarKey(locateXml, x))
-            {
+            if (Press.PesquisarKey(locateXml, press))
                 Console.WriteLine("PESQUISAR");
-            }
-            else if (Press.CadrastarKey(locateXml, x))
-            {
+            else if (Press.CadrastarKey(locateXml, press))
                 Console.WriteLine("Cadrastar");
-            }
-            else if (Press.ImportarKey(locateXml, x))
-            {
+            else if (Press.ImportarKey(locateXml, press))
                 Console.WriteLine("Import");
-            }
         }
     }
 }
