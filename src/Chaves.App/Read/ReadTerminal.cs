@@ -1,4 +1,4 @@
-﻿namespace Chaves.Application.Read
+﻿namespace Chaves.App.Read
 {
     internal static class ReadTerminal
     {

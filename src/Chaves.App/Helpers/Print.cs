@@ -1,4 +1,4 @@
-﻿namespace Chaves.Application.Helpers
+﻿namespace Chaves.App.Helpers
 {
     internal static class Print
     {

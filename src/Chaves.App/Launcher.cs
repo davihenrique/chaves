@@ -2,11 +2,11 @@
 using System.Data;
 using System.ComponentModel;
 using System.Xml.Linq;
-using Chaves.Application.Helpers;
-using Chaves.Application.Screens;
-using Chaves.Application.Read;
+using Chaves.App.Helpers;
+using Chaves.App.Screens;
+using Chaves.App.Read;
 
-namespace Chaves.Application
+namespace Chaves.App
 {
     public static class Launcher
     {

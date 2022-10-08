@@ -1,6 +1,6 @@
-﻿using Chaves.Application.Helpers;
+﻿using Chaves.App.Helpers;
 
-namespace Chaves.Application.Screens
+namespace Chaves.App.Screens
 {
     internal static partial class Press
     {

@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace Chaves.Application.Helpers
+namespace Chaves.App.Helpers
 {
     public class Locate
     {
