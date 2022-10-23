@@ -26,4 +26,4 @@ jobs:
         uses: Elskom/build-dotnet@main
         with:
           TEST: true
-          PACK: true
+          PACK: false
