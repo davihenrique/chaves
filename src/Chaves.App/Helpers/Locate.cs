@@ -6,16 +6,14 @@ namespace Chaves.App.Helpers
     {
         public string? LocateName { get; set; }
         public XmlDocument Xml { get; set; }
+
         public Locate(string locateName)
         {
             Xml = new XmlDocument();
             Xml.Load(locateName);
         }
 
-        public XmlDocument GetXml()
-        {
-            return Xml;
-        }
+        public XmlDocument GetXml() => Xml;
 
         public static string LocateText(string tag, XmlDocument xml)
         {
@@ -24,7 +22,7 @@ namespace Chaves.App.Helpers
                 var retorno = xml.DocumentElement?.SelectSingleNode(tag)?.InnerText;
 
                 if (retorno is null)
-                    return "ERROR XML NULO";
+                    return "ERROR EMPTY XML";
 
                 return retorno;
             }

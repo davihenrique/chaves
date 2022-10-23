@@ -17,5 +17,7 @@
         <Cadrastar>R</Cadrastar>
         <Importar>I</Importar>
     </Opcoes>
+	<SrcFile>Source: </SrcFile>
     <MsgFinal>See You...</MsgFinal>
+    <Falha>Import Fail !!!</Falha>
 </Locate>

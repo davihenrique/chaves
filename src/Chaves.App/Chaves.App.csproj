@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chaves.Core\Chaves.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Jsons\ServiceColumnName.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="XmlFiles\en-US.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

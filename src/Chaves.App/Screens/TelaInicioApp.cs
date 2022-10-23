@@ -10,5 +10,17 @@ namespace Chaves.App.Screens
             Print.PrintTxtN(locate, "/Locate/MsgInicial");
             Print.PrintTxt(locate, "/Locate/Opcoes/Exibir");
         }
+
+        internal static void TelaImport(Locate locate)
+        {
+            Print.QubraLinha();
+            Print.PrintTxt(locate, "/Locate/SrcFile");
+        }
+
+        internal static void TelaResultFalha(Locate locate)
+        {
+            Print.QubraLinha();
+            Print.PrintTxtN(locate, "/Locate/Falha");
+        }
     }
 }
