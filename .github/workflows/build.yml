@@ -1,17 +1,12 @@
 name: Format check on push
-on: push
+on: pull_request
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
-
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
-
       - name: Run dotnet format
         uses: requizm/dotnet-format@0.2.0
+        with:
+          action: "build"
