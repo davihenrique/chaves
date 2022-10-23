@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Locate>
+    <Logo>
+:!!?JYGGPY^
+!G5PGGP5555Y7
+?YPPY?!~~~!!7:
+7PJJ^     ~!?.
+.5P55~     !77:
+~5P##5    :YY!:
+:7YBG7     ~!:
+    </Logo>
+    <MsgInicial>Bem Vindo ao CHAVES</MsgInicial>
+    <Opcoes>
+        <Exibir>[P]esquisar Senha | [C]adrastar | [I]mportar: </Exibir>
+        <Pesquisar>P</Pesquisar>
+        <Cadrastar>C</Cadrastar>
+        <Importar>I</Importar>
+    </Opcoes>
+	<SrcFile>Caminho: </SrcFile>
+    <MsgFinal>Até mais...</MsgFinal>
+    <Falha>Falha ao Import !!!</Falha>
+</Locate>

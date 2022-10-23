@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Locate>
+    <Logo>
+:!!?JYGGPY^
+!G5PGGP5555Y7
+?YPPY?!~~~!!7:
+7PJJ^     ~!?.
+.5P55~     !77:
+~5P##5    :YY!:
+:7YBG7     ~!:
+    </Logo>
+    <MsgInicial>Welcome To CHAVES</MsgInicial>
+    <Opcoes>
+        <Exibir>[S]earch Password | [R]egister | [I]mport: </Exibir>
+        <Pesquisar>S</Pesquisar>
+        <Cadrastar>R</Cadrastar>
+        <Importar>I</Importar>
+    </Opcoes>
+	<SrcFile>Source: </SrcFile>
+    <MsgFinal>See You...</MsgFinal>
+    <Falha>Import Fail !!!</Falha>
+</Locate>
