@@ -1,0 +1,5 @@
+﻿{
+  "Google": "name,url,username,password",
+  "Norton": "Username,Password,Title,Login URL,Notes",
+  "Firefox": "url,username,password,httpRealm,formActionOrigin,guid,timeCreated,timeLastUsed,timePasswordChanged"
+}

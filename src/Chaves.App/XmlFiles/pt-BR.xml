@@ -17,5 +17,7 @@
         <Cadrastar>C</Cadrastar>
         <Importar>I</Importar>
     </Opcoes>
+	<SrcFile>Caminho: </SrcFile>
     <MsgFinal>Até mais...</MsgFinal>
+    <Falha>Falha ao Import !!!</Falha>
 </Locate>
