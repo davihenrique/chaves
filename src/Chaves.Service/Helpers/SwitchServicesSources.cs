@@ -7,9 +7,8 @@ using File = System.IO.File;
 
 namespace Chaves.Service.Helpers
 {
-    internal class SwitchServicesSources
+    internal static class SwitchServicesSources
     {
-
         public static ServicesSources? Verify(SourcePath source)
         {
             var firstLine = File.ReadAllLines(source.Src).First();
