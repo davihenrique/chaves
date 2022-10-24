@@ -22,7 +22,7 @@ namespace Chaves.Service.ImportPasswords
             }
             catch (Exception)
             {
-                return null;
+                return Enumerable.Empty<NortonPassword>();
             }
         }
     }

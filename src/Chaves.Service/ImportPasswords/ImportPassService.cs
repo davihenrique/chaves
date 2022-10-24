@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Chaves.Data.Models;
 using Chaves.Service.Helpers;
 
@@ -15,7 +16,7 @@ namespace Chaves.Service.ImportPasswords
             if (source.Valid)
                 return GetPass(source);
 
-            return null;
+            return Enumerable.Empty<Password>();
         }
 
     }
