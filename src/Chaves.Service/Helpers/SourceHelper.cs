@@ -15,8 +15,7 @@ namespace Chaves.Service.Helpers
             if (src[Math.Max(0, src.Length - 5)..].Equals(".csv\"")
                 || src[Math.Max(0, src.Length - 4)..].Equals(".csv"))
             {
-                // FIXME
-                sourcePath.Src = src;
+                sourcePath.Src = src; // FIXME Validar Regra
                 sourcePath.Valid = true;
             }
 
