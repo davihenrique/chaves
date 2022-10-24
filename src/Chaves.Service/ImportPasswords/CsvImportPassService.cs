@@ -29,7 +29,7 @@ namespace Chaves.Service.ImportPasswords
             };
 
             if (records is null)
-                return null;
+                return new List<Password>();
 
             return config.CreateMapper().Map<List<Password>>(records.ToList());
         }

@@ -24,7 +24,6 @@ namespace Chaves.Core.Services
 
         }
 
-        //TODO:
         public static ImportDetailsViewModelCore Record(IEnumerable<Password> passwords)
         {
             return new ImportDetailsViewModelCore { Count = passwords.Count(), Msg = ImporServiceEnum.Sucess };
