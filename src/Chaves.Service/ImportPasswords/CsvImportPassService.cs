@@ -12,7 +12,7 @@ namespace Chaves.Service.ImportPasswords
     public static partial class ImportPassService
     {
 
-        public static List<Password> GetPass(SourcePath source)
+        public static IEnumerable<Password> GetPass(SourcePath source)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -29,7 +29,7 @@ namespace Chaves.Service.ImportPasswords
             };
 
             if (records is null)
-                return new List<Password>();
+                return Enumerable.Empty<Password>();
 
             return config.CreateMapper().Map<List<Password>>(records.ToList());
         }
