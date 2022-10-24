@@ -1,6 +1,6 @@
 ﻿namespace Chaves.Core.ViewModel.Enums
 {
-    public enum ImporServiceEnum
+    public enum ImporServiceSatus
     {
         Sucess,
         Fail,

@@ -22,13 +22,13 @@ namespace Chaves.App.Service
             if (!string.IsNullOrEmpty(readTerminal))
                 result = ImportServiceCore.Import(readTerminal);
 
-            if (result.Msg == ImporServiceEnum.Sucess)
+            if (result.Msg == ImporServiceSatus.Sucess)
                 Screen.TelaResultFalha(locateXml);
 
-            if (result.Msg == ImporServiceEnum.Fail)
+            if (result.Msg == ImporServiceSatus.Fail)
                 Screen.TelaResultFalha(locateXml);
 
-            if (result.Msg == ImporServiceEnum.NoOne)
+            if (result.Msg == ImporServiceSatus.NoOne)
                 Screen.TelaResultFalha(locateXml);
 
         }
