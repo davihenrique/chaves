@@ -4,7 +4,7 @@ using Chaves.Data.Models;
 
 namespace Chaves.Data.Comparer
 {
-    public class GoogleComparer : IEqualityComparer<GooglePassword>
+    public class GooglePasswordComparer : IEqualityComparer<GooglePassword>
     {
         public bool Equals(GooglePassword x, GooglePassword y)
         {
