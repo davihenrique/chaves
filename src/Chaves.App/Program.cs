@@ -2,7 +2,7 @@
 
 namespace Chaves.App
 {
-    class Program
+    internal static class Program
     {
         static void Main()
         {
