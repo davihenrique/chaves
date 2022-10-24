@@ -15,10 +15,10 @@ namespace Chaves.Core.Services
             var passwords = ImportPassService.Execute(src);
 
             if (passwords is null)
-                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceEnum.Fail };
+                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceSatus.Fail };
 
             if (!passwords.Any())
-                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceEnum.NoOne };
+                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceSatus.NoOne };
 
             return Record(passwords);
 
@@ -26,7 +26,7 @@ namespace Chaves.Core.Services
 
         public static ImportDetailsViewModelCore Record(IEnumerable<Password> passwords)
         {
-            return new ImportDetailsViewModelCore { Count = passwords.Count(), Msg = ImporServiceEnum.Sucess };
+            return new ImportDetailsViewModelCore { Count = passwords.Count(), Msg = ImporServiceSatus.Sucess };
         }
     }
 }
