@@ -11,8 +11,6 @@ namespace Chaves.App.Service
     {
         public static void Execute(Locate locateXml)
         {
-
-
             ImportDetailsViewModelCore result = new();
 
             Screen.TelaImport(locateXml);
@@ -23,13 +21,13 @@ namespace Chaves.App.Service
                 result = ImportServiceCore.Import(readTerminal);
 
             if (result.Msg == ImporServiceSatus.Sucess)
-                Screen.TelaResultFalha(locateXml);
+                Screen.TelaResultSucess(locateXml);
 
             if (result.Msg == ImporServiceSatus.Fail)
                 Screen.TelaResultFalha(locateXml);
 
             if (result.Msg == ImporServiceSatus.NoOne)
-                Screen.TelaResultFalha(locateXml);
+                Screen.TelaResultNoOne(locateXml);
 
         }
     }

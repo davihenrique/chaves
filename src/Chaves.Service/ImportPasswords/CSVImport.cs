@@ -12,7 +12,7 @@ namespace Chaves.Service.ImportPasswords
     public static partial class ImportPassService
     {
 
-        public static IEnumerable<Password> GetPass(SourcePath source)
+        public static IEnumerable<Password> CSVImport(SourcePath source)
         {
             var config = new MapperConfiguration(cfg =>
             {

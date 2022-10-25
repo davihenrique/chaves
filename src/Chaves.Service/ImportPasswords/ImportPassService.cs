@@ -14,7 +14,7 @@ namespace Chaves.Service.ImportPasswords
             var source = SourceHelper.Execute(src);
 
             if (source.Valid)
-                return GetPass(source);
+                return CSVImport(source);
 
             return Enumerable.Empty<Password>();
         }

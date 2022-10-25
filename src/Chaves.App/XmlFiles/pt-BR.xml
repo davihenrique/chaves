@@ -19,5 +19,7 @@
     </Opcoes>
 	<SrcFile>Caminho: </SrcFile>
     <MsgFinal>Até mais...</MsgFinal>
-    <Falha>Falha ao Import !!!</Falha>
+    <FailScream>Falha ao Import !!!</FailScream>
+    <SuccessScreen>Importado</SuccessScreen>
+    <NoOneScreen>Nenhum</NoOneScreen>
 </Locate>
