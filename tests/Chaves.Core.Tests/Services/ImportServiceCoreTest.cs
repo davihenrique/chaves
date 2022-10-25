@@ -17,7 +17,7 @@ namespace Chaves.Core.Tests.Services
 
             result.Should().NotBeNull();
 
-            result.Should().BeEquivalentTo(new ImportDetailsViewModelCore { Msg = ImporServiceSatus.Fail, Count = 0 });
+            result.Should().BeEquivalentTo(new ImportDetailsViewModelCore { Msg = ImporServiceSatus.NoOne, Count = 0 });
 
         }
 
