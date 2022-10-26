@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Chaves.Data.Models;
-using Chaves.Service.Helpers;
+﻿using Chaves.Service.Helpers;
+using Chaves.Service.Returns;
 
 namespace Chaves.Service.ImportPasswords
 {
     public static partial class ImportPassService
     {
-
-        public static IEnumerable<Password> Execute(string src)
+        public static ImportPassServiceReturn Execute(string src)
         {
 
             var source = SourceHelper.Execute(src);
@@ -16,7 +13,7 @@ namespace Chaves.Service.ImportPasswords
             if (source.Valid)
                 return CSVImport(source);
 
-            return Enumerable.Empty<Password>();
+            return new ImportPassServiceReturn { StatusSource = Enums.StatusSource.Fail };
         }
 
     }

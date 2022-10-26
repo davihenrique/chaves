@@ -1,8 +1,8 @@
-﻿using Chaves.Core.ViewModel.Enums;
+﻿using Chaves.Core.Enums;
 
 namespace Chaves.Core.ViewModel
 {
-    public class ImportDetailsViewModelCore
+    public class ImportServiceCoreResponse
     {
         public int Count { get; set; }
         public ImporServiceSatus Msg { get; set; }

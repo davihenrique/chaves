@@ -1,9 +1,9 @@
 ﻿using Chaves.App.Helpers;
 using Chaves.App.Read;
 using Chaves.App.Screens;
+using Chaves.Core.Enums;
 using Chaves.Core.Services;
 using Chaves.Core.ViewModel;
-using Chaves.Core.ViewModel.Enums;
 
 namespace Chaves.App.Service
 {
@@ -11,7 +11,7 @@ namespace Chaves.App.Service
     {
         public static void Execute(Locate locateXml)
         {
-            ImportDetailsViewModelCore result = new();
+            ImportServiceCoreResponse result = new();
 
             Screen.TelaImport(locateXml);
 

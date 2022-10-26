@@ -1,32 +1,32 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using Chaves.Core.Enums;
 using Chaves.Core.ViewModel;
-using Chaves.Core.ViewModel.Enums;
-using Chaves.Data.Models;
+using Chaves.Service.Enums;
 using Chaves.Service.ImportPasswords;
+using Chaves.Service.Returns;
 
 namespace Chaves.Core.Services
 {
     public static class ImportServiceCore
     {
 
-        public static ImportDetailsViewModelCore Import(string src)
+        public static ImportServiceCoreResponse Import(string src)
         {
-            var passwords = ImportPassService.Execute(src);
+            var import = ImportPassService.Execute(src);
 
-            if (passwords is null)
-                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceSatus.Fail };
+            if (import.StatusSource == StatusSource.Fail)
+                return new ImportServiceCoreResponse { Count = 0, Msg = ImporServiceSatus.Fail };
 
-            if (!passwords.Any())
-                return new ImportDetailsViewModelCore { Count = 0, Msg = ImporServiceSatus.NoOne };
+            if (!import.Passwords.Any())
+                return new ImportServiceCoreResponse { Count = 0, Msg = ImporServiceSatus.NoOne };
 
-            return Record(passwords);
+            return Record(import);
 
         }
 
-        public static ImportDetailsViewModelCore Record(IEnumerable<Password> passwords)
+        public static ImportServiceCoreResponse Record(ImportPassServiceReturn import)
         {
-            return new ImportDetailsViewModelCore { Count = passwords.Count(), Msg = ImporServiceSatus.Sucess };
+            return new ImportServiceCoreResponse { Count = import.Passwords.Count(), Msg = ImporServiceSatus.Sucess };
         }
     }
 }

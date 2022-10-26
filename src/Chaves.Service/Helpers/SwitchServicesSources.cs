@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using Chaves.Data.Enums;
 using Chaves.Service.Dto;
 using Newtonsoft.Json;
@@ -11,15 +12,23 @@ namespace Chaves.Service.Helpers
     {
         public static ServicesSources? Verify(SourcePath source)
         {
-            var firstLine = File.ReadAllLines(source.Src).First();
+            try
+            {
+                var firstLine = File.ReadAllLines(source.Src).First();
 
-            var jsonText = new JsonTextReader(File.OpenText(@"Jsons\ServiceColumnName.json"));
-            var json = (JObject)JToken.ReadFrom(jsonText);
+                var jsonText = new JsonTextReader(File.OpenText(@"Jsons\ServiceColumnName.json"));
+                var json = (JObject)JToken.ReadFrom(jsonText);
 
-            if (firstLine.Equals(json["Google"].Value<string>()))
-                return ServicesSources.Google;
-            else if (firstLine.Equals(json["Norton"].Value<string>()))
-                return ServicesSources.Norton;
+                if (firstLine.Equals(json["Google"].Value<string>()))
+                    return ServicesSources.Google;
+                else if (firstLine.Equals(json["Norton"].Value<string>()))
+                    return ServicesSources.Norton;
+
+            }
+            catch (FileNotFoundException)
+            {
+                return null;
+            }
 
             return null;
         }
