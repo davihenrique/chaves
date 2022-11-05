@@ -3,11 +3,14 @@ using Chaves.Data.Models;
 
 namespace Chaves.Service.RecordPasswords
 {
-    internal static class RecordPasswordsService
+    internal static partial class RecordPasswordsService
     {
-        public static void Record(List<Password> passwords)
+        public static bool Record(List<Password> passwords)
         {
-            // Do implementar
+            CheckFolderChaves();
+            ExistFile();
+
+            return true;
         }
     }
 }

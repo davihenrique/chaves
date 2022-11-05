@@ -7,6 +7,7 @@ using Chaves.Service.Dto;
 using Chaves.Service.Enums;
 using Chaves.Service.Helpers;
 using Chaves.Service.ImportPasswords.Perfil;
+using Chaves.Service.RecordPasswords;
 using Chaves.Service.Returns;
 
 namespace Chaves.Service.ImportPasswords
@@ -34,6 +35,8 @@ namespace Chaves.Service.ImportPasswords
                 return new ImportPassServiceReturn { StatusSource = StatusSource.Fail };
 
             var import = config.CreateMapper().Map<List<Password>>(records.ToList());
+
+            var record = RecordPasswordsService.Record(import);
 
             return new ImportPassServiceReturn { StatusSource = StatusSource.Success, Passwords = import };
         }
