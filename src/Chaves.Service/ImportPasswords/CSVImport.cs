@@ -30,12 +30,11 @@ namespace Chaves.Service.ImportPasswords
             };
 
             if (records is null)
-                return null;
+                return Enumerable.Empty<Password>();
 
             var import = config.CreateMapper().Map<List<Password>>(records.ToList());
 
             return import;
-
         }
     }
 }

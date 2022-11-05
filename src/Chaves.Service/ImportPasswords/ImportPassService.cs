@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Chaves.Data.Models;
 using Chaves.Service.Enums;
 using Chaves.Service.Helpers;
-using Chaves.Service.RecordPasswords;
 using Chaves.Service.Returns;
 
 namespace Chaves.Service.ImportPasswords
@@ -11,37 +11,27 @@ namespace Chaves.Service.ImportPasswords
     {
         public static ImportPassServiceReturn Execute(string src)
         {
-
             var source = SourceHelper.Execute(src);
 
             if (!source.Valid)
                 return new ImportPassServiceReturn { StatusSource = Enums.StatusSource.Fail };
-
 
             var pass = CSVImport(source);
 
             if (pass is null)
                 return new ImportPassServiceReturn { StatusSource = StatusSource.Fail };
 
-            var record = RecordPasswordsService.Record(pass);
-
             return new ImportPassServiceReturn { StatusSource = StatusSource.Success, Passwords = pass };
-
-
         }
-
 
         public static IEnumerable<Password> ExecuteWithReturnPass(string src)
         {
-
             var source = SourceHelper.Execute(src);
 
             if (source.Valid)
                 return CSVImport(source);
 
-
-            return null;
+            return Enumerable.Empty<Password>();
         }
-
     }
 }
