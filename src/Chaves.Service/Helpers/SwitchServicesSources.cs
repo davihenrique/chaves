@@ -19,7 +19,9 @@ namespace Chaves.Service.Helpers
                 var jsonText = new JsonTextReader(File.OpenText(@"Jsons\ServiceColumnName.json"));
                 var json = (JObject)JToken.ReadFrom(jsonText);
 
-                if (firstLine.Equals(json["Google"].Value<string>()))
+                if (firstLine.Equals(json["Default"].Value<string>()))
+                    return ServicesSources.Default;
+                else if (firstLine.Equals(json["Google"].Value<string>()))
                     return ServicesSources.Google;
                 else if (firstLine.Equals(json["Norton"].Value<string>()))
                     return ServicesSources.Norton;

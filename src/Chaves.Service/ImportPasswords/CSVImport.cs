@@ -4,18 +4,15 @@ using AutoMapper;
 using Chaves.Data.Enums;
 using Chaves.Data.Models;
 using Chaves.Service.Dto;
-using Chaves.Service.Enums;
 using Chaves.Service.Helpers;
 using Chaves.Service.ImportPasswords.Perfil;
-using Chaves.Service.RecordPasswords;
-using Chaves.Service.Returns;
 
 namespace Chaves.Service.ImportPasswords
 {
     public static partial class ImportPassService
     {
 
-        public static ImportPassServiceReturn CSVImport(SourcePath source)
+        public static IEnumerable<Password> CSVImport(SourcePath source)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -26,19 +23,19 @@ namespace Chaves.Service.ImportPasswords
 
             records = SwitchServicesSources.Verify(source) switch
             {
+                ServicesSources.Default => GetPassDefault(source),
                 ServicesSources.Google => GetPassGoogleChrome(source),
                 ServicesSources.Norton => GetPassNorton(source),
                 _ => null,
             };
 
             if (records is null)
-                return new ImportPassServiceReturn { StatusSource = StatusSource.Fail };
+                return null;
 
             var import = config.CreateMapper().Map<List<Password>>(records.ToList());
 
-            var record = RecordPasswordsService.Record(import);
+            return import;
 
-            return new ImportPassServiceReturn { StatusSource = StatusSource.Success, Passwords = import };
         }
     }
 }
