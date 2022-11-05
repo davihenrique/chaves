@@ -8,24 +8,23 @@ using Chaves.Data.Models;
 using Chaves.Service.Dto;
 using CsvHelper;
 
-namespace Chaves.Service.ImportPasswords
+namespace Chaves.Service.ImportPasswords.ImportCSV
 {
-    public static partial class ImportPassService
+    public static partial class ImportServiceCSV
     {
-
-        public static IEnumerable<Password> GetPassDefault(SourcePath source)
+        public static IEnumerable<NortonPassword> GetPassNorton(SourcePath source)
         {
             try
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<Password>().AsEnumerable().Distinct(new DefaultPasswordComparer()).ToList();
+                var pass = csv.GetRecords<NortonPassword>().ToList().Distinct(new NortonPasswordComparer());
                 csv.Dispose();
                 return pass;
             }
             catch (Exception)
             {
-                return Enumerable.Empty<Password>();
+                return Enumerable.Empty<NortonPassword>();
             }
         }
     }
