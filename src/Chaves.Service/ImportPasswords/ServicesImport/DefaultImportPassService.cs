@@ -12,19 +12,20 @@ namespace Chaves.Service.ImportPasswords
 {
     public static partial class ImportPassService
     {
-        public static IEnumerable<NortonPassword> GetPassNorton(SourcePath source)
+
+        public static IEnumerable<Password> GetPassDefault(SourcePath source)
         {
             try
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<NortonPassword>().AsEnumerable().Distinct(new NortonPasswordComparer()).ToList();
+                var pass = csv.GetRecords<Password>().AsEnumerable().Distinct(new DefaultPasswordComparer()).ToList();
                 csv.Dispose();
                 return pass;
             }
             catch (Exception)
             {
-                return Enumerable.Empty<NortonPassword>();
+                return Enumerable.Empty<Password>();
             }
         }
     }

@@ -18,7 +18,10 @@ namespace Chaves.Service.ImportPasswords
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                return csv.GetRecords<GooglePassword>().AsEnumerable().Distinct(new GooglePasswordComparer());
+                var pass = csv.GetRecords<GooglePassword>().AsEnumerable().Distinct(new GooglePasswordComparer()).ToList();
+                csv.Dispose();
+
+                return pass;
             }
             catch (Exception)
             {
