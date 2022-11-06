@@ -9,7 +9,7 @@ foreach($script in $scripts)
   $Result = Invoke-Pester -Script $script -PassThru
   if($Result.FailedCount -gt 0)
   {
-    exit 1
+    exit $LASTEXITCODE
   }
 
 }
