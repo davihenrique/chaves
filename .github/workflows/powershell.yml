@@ -10,5 +10,5 @@ jobs:
         - uses: actions/checkout@v1
         - name: Script
           working-directory: .\scripts
-          run: *.ps1
+          run: MockData.ps1
           shell: powershell
