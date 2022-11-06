@@ -8,7 +8,6 @@ using CsvHelper.Configuration;
 
 namespace Chaves.Service.RecordPasswords
 {
-
     internal static partial class RecordPasswordsService
     {
         public static bool CheckFolderChaves()

@@ -4,8 +4,6 @@ using Chaves.Service.ImportPasswords;
 
 namespace Chaves.Service.RecordPasswords
 {
-
-
     internal static partial class RecordPasswordsService
     {
         public static bool Record(IEnumerable<Password> passwords)
