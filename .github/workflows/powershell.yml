@@ -10,4 +10,4 @@ jobs:
         - uses: actions/checkout@v2
         - name: Script
           run: .\scripts\MockData.ps1
-          shell: powershell
+          shell: pwsh
