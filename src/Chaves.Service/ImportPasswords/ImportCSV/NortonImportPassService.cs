@@ -18,7 +18,7 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<NortonPassword>().ToList().Distinct(new NortonPasswordComparer());
+                var pass = csv.GetRecords<NortonPassword>().AsEnumerable().Distinct(new NortonPasswordComparer());
                 csv.Dispose();
                 return pass;
             }

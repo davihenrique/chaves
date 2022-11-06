@@ -19,7 +19,7 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<Password>().ToList().Distinct(new DefaultPasswordComparer());
+                var pass = csv.GetRecords<Password>().AsEnumerable().Distinct(new DefaultPasswordComparer());
                 csv.Dispose();
                 return pass;
             }

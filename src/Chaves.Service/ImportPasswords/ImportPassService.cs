@@ -17,7 +17,7 @@ namespace Chaves.Service.ImportPasswords
             if (!source.Valid)
                 return new ImportPassServiceReturn { StatusSource = Enums.StatusSource.Fail };
 
-            var pass = ImportServiceCSV.CSVImport(source);
+            var pass = ImportServiceCsv.CSVImport(source);
 
             if (pass is null)
                 return new ImportPassServiceReturn { StatusSource = StatusSource.Fail };
@@ -30,7 +30,7 @@ namespace Chaves.Service.ImportPasswords
             var source = SourceHelper.Execute(src);
 
             if (source.Valid)
-                return ImportServiceCSV.CSVImport(source);
+                return ImportServiceCsv.CSVImport(source);
 
             return Enumerable.Empty<Password>();
         }
