@@ -19,5 +19,6 @@ jobs:
                 if($Result.FailedCount -gt 0)
                 {
                   exit 1
+                  break
                 }
               }
