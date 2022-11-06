@@ -15,9 +15,9 @@ jobs:
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
               foreach($script in $scripts)
               {
-                $Result = Invoke-Pester -Script $script -PassThru
-                if($Result.FailedCount -gt 0)
+                if((Invoke-Pester -Script $script -PassThru).FailedCount -gt 0)
                 {
                   Write-Host "CHEGOU AQUIIIIIIIIIIIIIIIIIIIIIII"
+                  break
                 }
               }
