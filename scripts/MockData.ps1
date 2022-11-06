@@ -40,17 +40,12 @@ ForEach-Object {
 
 } | Export-Csv -Path $Outfile -UseQuotes AsNeeded -NoTypeInformation;
 
-Clear-Host
-
 Write-Host "MOCK CREATED `u{2705}"
 
-$file = 'c:\chaves\pass.csv'
-
-if ((Test-Path -Path $file -PathType Leaf)) {
-    $PASS = Import-Csv -Path $file
+if ((Test-Path -Path $OutFile -PathType Leaf)) {
+    $PASS = Import-Csv -Path $OutFile
     $PASS | Format-Table
     Write-Host "ROWS:" $PASS.Length
-    
  }
  else {
     Write-Host "NO FILE"
