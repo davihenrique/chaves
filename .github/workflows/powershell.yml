@@ -2,8 +2,8 @@ name: Test PowerShell on Ubuntu
 on: push
 
 jobs:
-  pester-test:
-    name: Linux Ubuntu Test
+  Linux-test:
+    name: Ubuntu Test
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -14,8 +14,8 @@ jobs:
               $scriptDirectory = "./scripts"
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
               foreach($script in $scripts){Invoke-Pester $script -Passthru}
-jobs:
-  pester-test:
+
+  Windows-test:
     name: Windows 2019 Test
     runs-on: windows-2019
     steps:
