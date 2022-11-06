@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
       - name: Test Scripts
         shell: pwsh
         run: |
@@ -18,7 +18,6 @@ jobs:
                 $Result = Invoke-Pester -Script $script -PassThru
                 if($Result.FailedCount -gt 0)
                 {
-                  exit 1
-                  break
+                  Write-Output "::stop-commands::$stopMarker"
                 }
               }
