@@ -21,12 +21,11 @@ namespace Chaves.Core.Services
                 return new ImportServiceCoreResponse { Count = 0, Msg = ImporServiceSatus.NoOne };
 
             return Record(import);
-
         }
 
-        public static ImportServiceCoreResponse Record(ImportPassServiceReturn import)
+        public static ImportServiceCoreResponse Record(ImportPassServiceReturn pass)
         {
-            return new ImportServiceCoreResponse { Count = import.Passwords.Count(), Msg = ImporServiceSatus.Sucess };
+            return new ImportServiceCoreResponse { Count = pass.Passwords.Count(), Msg = ImporServiceSatus.Sucess };
         }
     }
 }
