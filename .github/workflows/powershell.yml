@@ -1,5 +1,8 @@
 name: PowerShell Test
-on: push
+on:
+ push:
+  paths:
+    - scripts/**
 
 jobs:
   Powershell:
