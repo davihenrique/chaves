@@ -9,5 +9,6 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Script
-          run: .\scripts\MockData.ps1
+          run: |
+            working-directory : .\scripts
           shell: pwsh
