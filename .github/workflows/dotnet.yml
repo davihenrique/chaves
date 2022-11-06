@@ -2,7 +2,7 @@ name: Dotnet Check
 on: push
 
 jobs:
-  Linux Build:
+  Linux-Build:
     name: Linux Ubuntu Test
     runs-on: ubuntu-latest
     strategy:
@@ -22,7 +22,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 
-  Linux Build:
+  Windows-Build:
     name: Windows Test
     runs-on: windows-latest
     strategy:
