@@ -9,5 +9,4 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Script
-          run: .\scripts\MockData.ps1
-          shell: pwsh
+          run: .\scripts\MockData.ps1 -PSVersion 7
