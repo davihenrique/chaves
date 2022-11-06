@@ -52,8 +52,6 @@ if(-not(Test-Path -Path $folderChaves))
 
 } | Export-Csv -Path $Outfile -UseQuotes AsNeeded -NoTypeInformation;
 
-Clear-Host
-
 Write-Host "MOCK CREATED `u{2705}"
 
 if ((Test-Path -Path $OutFile -PathType Leaf)) 

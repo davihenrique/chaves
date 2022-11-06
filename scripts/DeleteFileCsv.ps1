@@ -1,3 +1,11 @@
-Remove-Item c:\chaves\pass.csv
-Clear-Host
-Write-Host "DELETED FILE"
+$file = "d:\chaves\pass.csv"
+
+if(Test-Path -Path $file -PathType Leaf)
+{
+  Remove-Item $file
+  Write-Host "DELETED FILE"
+}
+else
+{
+  Write-Host "FILE DOES NOT EXIST"
+}

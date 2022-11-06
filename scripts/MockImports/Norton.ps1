@@ -59,13 +59,11 @@ if(-not(Test-Path -Path $folderChaves))
 
 } | Export-Csv -Path $Outfile -UseQuotes AsNeeded -NoTypeInformation;
 
-Clear-Host
-
 Write-Host "MOCK CREATED `u{2705}"
 
 if ((Test-Path -Path $OutFile -PathType Leaf)) 
 {
-    $PASS = Import-Csv -Path $file
+    $PASS = Import-Csv -Path $OutFile
     $PASS | Format-Table
     Write-Host "ROWS:" $PASS.Length
     Write-Host $OutFile

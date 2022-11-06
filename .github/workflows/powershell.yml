@@ -9,5 +9,8 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: Script
-          run: .\scripts\*.ps1
+          run: |
+              $scriptDirectory = "./scripts"
+              $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
+              foreach($script in $scripts){pwsh $script}
           shell: pwsh
