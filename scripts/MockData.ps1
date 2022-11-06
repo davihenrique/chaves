@@ -1,5 +1,5 @@
-﻿$folderChaves = 'C:\chaves'
-$OutFile = "C:\chaves\pass.csv"
+﻿$folderChaves = 'd:\chaves'
+$OutFile = "d:\chaves\pass.csv"
 
 if(-not(Test-Path -Path $folderChaves))
 {
