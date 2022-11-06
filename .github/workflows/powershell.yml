@@ -3,12 +3,25 @@ on: push
 
 jobs:
   pester-test:
-    name: Pester test
+    name: Linux Ubuntu Test
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform a Pester test from the Tests.ps1 file
+      - name: Test Scripts
+        shell: pwsh
+        run: |
+              $scriptDirectory = "./scripts"
+              $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
+              foreach($script in $scripts){Invoke-Pester $script -Passthru}
+jobs:
+  pester-test:
+    name: Windows 2019 Test
+    runs-on: windows-2019
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Test Scripts
         shell: pwsh
         run: |
               $scriptDirectory = "./scripts"
