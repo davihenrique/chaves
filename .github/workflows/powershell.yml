@@ -1,0 +1,13 @@
+name: powershell
+
+on: [push]
+
+jobs:
+  build:
+  s
+   name: Run PSScriptAnalyzer
+   uses: microsoft/psscriptanalyzer-action@v1.0
+   with:
+    path: .\scripts\
+    recurse: true 
+    output: results.sarif
