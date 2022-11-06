@@ -11,4 +11,7 @@ jobs:
       - name: Perform a Pester test from the Tests.ps1 file
         shell: pwsh
         run: |
-          Invoke-Pester ./scripts/*.ps1 -Passthru
+        $scriptDirectory = "./scripts";
+        $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"};
+        foreach($script in $scripts) {Invoke-Pester $script -Passthru}
+          
