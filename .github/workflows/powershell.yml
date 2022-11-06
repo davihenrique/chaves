@@ -1,8 +1,5 @@
 name: PowerShell Test
-on:
- push:
-  paths:
-    - scripts/**
+on: push
 
 jobs:
   Powershell:
@@ -16,4 +13,9 @@ jobs:
         run: |
               $scriptDirectory = "./scripts"
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
-              foreach($script in $scripts){Invoke-Pester $script -Passthru}
+              $config = [PesterConfiguration]@{
+                 Should = @{
+                 ErrorAction = 'Stop'
+                }
+              }
+              foreach($script in $scripts){Invoke-Pester $script -Passthru -Configuration $config}
