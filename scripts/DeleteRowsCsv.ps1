@@ -1,6 +1,6 @@
 $file = 'd:\chaves\pass.csv'
 
-$header = Get-Content -LiteralPath $file |
+$header = Getzzzzzzz-Content -LiteralPath $file |
           Where-Object { $_ -notmatch '^#type' } |
           Select-Object -First 1
 
