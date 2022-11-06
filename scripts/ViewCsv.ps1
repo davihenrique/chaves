@@ -1,4 +1,4 @@
-﻿$file = 'c:\chaves\pass.csv'
+﻿$file = 'd:\chaves\pass.csv'
 
 if ((Test-Path -Path $file -PathType Leaf)) {
     $PASS = Import-Csv -Path $file
