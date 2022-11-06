@@ -9,6 +9,5 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Script
-          working-directory: .\scripts
-          run: MockData.ps1
+          run: .\scripts\MockData.ps1
           shell: powershell
