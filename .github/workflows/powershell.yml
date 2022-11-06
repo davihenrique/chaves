@@ -18,6 +18,6 @@ jobs:
                 $Result = Invoke-Pester -Script $script -PassThru
                 if($Result.FailedCount -gt 0)
                 {
-                  CLS
+                  Clear-Host
                 }
               }
