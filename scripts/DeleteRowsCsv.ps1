@@ -5,5 +5,4 @@ $header = Get-Content -LiteralPath $file |
           Select-Object -First 1
 
 Set-Content -LiteralPath $file -Value $header
-Clear-Host
 Write-Host "DELETED ROWS"
