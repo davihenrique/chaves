@@ -1,13 +1,10 @@
-name: PowerShell Scripts Check
+name: PowerShell Test
 on: push
 
 jobs:
   Powershell:
-    name: Powershell Test Syntax
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    name: Powershell - Windows 2019
+    runs-on: windows-2019
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
