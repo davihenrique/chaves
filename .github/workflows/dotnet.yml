@@ -1,10 +1,9 @@
-name: dotnet
-
-on: [push]
+name: Dotnet Check
+on: push
 
 jobs:
-  build:
-
+  Linux Build:
+    name: Linux Ubuntu Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,3 +21,24 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+
+  Linux Build:
+    name: Windows Test
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x']
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
+
