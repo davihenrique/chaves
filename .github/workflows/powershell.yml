@@ -2,9 +2,12 @@ name: PowerShell Scripts Check
 on: push
 
 jobs:
-  Linux:
-    name: Linux Ubuntu Test
-    runs-on: ubuntu-latest
+  Powershell:
+    name: Powershell Test Syntax
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -14,29 +17,3 @@ jobs:
               $scriptDirectory = "./scripts"
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
               foreach($script in $scripts){Invoke-Pester $script -Passthru}
-
-  Windows:
-    name: Windows Test
-    runs-on: windows-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Test Scripts
-        shell: pwsh
-        run: |
-              $scriptDirectory = "./scripts"
-              $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
-              foreach($script in $scripts){Invoke-Pester $script -Passthru}
-  APPLE-macOS:
-    name: Apple macOS
-    runs-on: macos-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Test Scripts
-        shell: pwsh
-        run: |
-              $scriptDirectory = "./scripts"
-              $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
-              foreach($script in $scripts){Invoke-Pester $script -Passthru}
-          
