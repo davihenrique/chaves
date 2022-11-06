@@ -7,5 +7,5 @@ if ((Test-Path -Path $file -PathType Leaf)) {
     
  }
  else {
-    Write-ssHost "NO FILE"
+    Write-Host "NO FILE"
  }

@@ -27,4 +27,17 @@ jobs:
               $scriptDirectory = "./scripts"
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
               foreach($script in $scripts){Invoke-Pester $script -Passthru}
+jobs:
+  APPLE-MAC:
+    name: Apple macOS
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Test Scripts
+        shell: pwsh
+        run: |
+              $scriptDirectory = "./scripts"
+              $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
+              foreach($script in $scripts){Invoke-Pester $script -Passthru}
           
