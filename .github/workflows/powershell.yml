@@ -17,6 +17,8 @@ jobs:
               {
                 if((Invoke-Pester -Script $script -PassThru).FailedCount -gt 0)
                 {
+                  exit 1
+                  CAÇAÇAÇAÇA
                   Write-Host "CHEGOU AQUIIIIIIIIIIIIIIIIIIIIIII"
                   break
                 }
