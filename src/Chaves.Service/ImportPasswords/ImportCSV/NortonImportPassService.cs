@@ -10,7 +10,7 @@ using CsvHelper;
 
 namespace Chaves.Service.ImportPasswords.ImportCSV
 {
-    public static partial class ImportServiceCSV
+    public static partial class ImportServiceCsv
     {
         public static IEnumerable<NortonPassword> GetPassNorton(SourcePath source)
         {

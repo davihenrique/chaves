@@ -9,7 +9,7 @@ using Chaves.Service.ImportPasswords.Perfil;
 
 namespace Chaves.Service.ImportPasswords.ImportCSV
 {
-    public static partial class ImportServiceCSV
+    public static partial class ImportServiceCsv
     {
 
         public static IEnumerable<Password> CSVImport(SourcePath source)
