@@ -13,4 +13,4 @@ jobs:
         run: |
               $scriptDirectory = "./scripts"
               $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
-              foreach($script in $scripts){Invoke-Pester $script -Passthru -ErrorAction Stop}
+              foreach($script in $scripts){Invoke-Pester $script}
