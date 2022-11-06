@@ -14,11 +14,12 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
     {
         public static IEnumerable<GooglePassword> GetPassGoogleChrome(SourcePath source)
         {
+
             try
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<GooglePassword>().AsEnumerable().Distinct(new GooglePasswordComparer());
+                var pass = csv.GetRecords<GooglePassword>().AsEnumerable().Distinct(new GooglePasswordComparer()).ToList();
                 csv.Dispose();
 
                 return pass;
