@@ -4,10 +4,7 @@ on: push
 jobs:
   lint-with-PSScriptAnalyzer:
     name: PSScriptAnalyzer
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
       - name: Install PSScriptAnalyzer module
@@ -31,8 +28,7 @@ jobs:
         run: |
           $scriptDirectory = "./scripts"
           $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
-          $CODE = 0
           foreach($script in $scripts)
           {
-            Invoke-Pester -Script $script -PassThru
+            Invoke-Pester -Script $script
           }
