@@ -1,7 +1,7 @@
 $file = 'd:\chaves\pass.csv'
 
 
-if ((Test-Pathh -Path $file -PathType Leaf)) {
+if ((Test-Path -Path $file -PathType Leaf)) {
 
 $header = Ged-Content -LiteralPath $file |
           Where-Object { $_ -notmatch '^#type' } |
