@@ -8,9 +8,9 @@ $header = Ged-Content -LiteralPath $file |
           Select-Object -First 1
 
 Set-Content -LiteralPath $file -Value $header
-Write-Host "DELETED ROWS"
+Write-Output "DELETED ROWS"
 }
 else
 {
-  Write-Host "FILE DOES NOT EXIST"
+  Write-Output "FILE DOES NOT EXIST"
 }
