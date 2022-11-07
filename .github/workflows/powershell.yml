@@ -22,8 +22,8 @@ jobs:
                 }
               }
               exit 1
-              
-    Powershell:
+
+    Teste:
     name: Powershell teste
     runs-on: windows-2019
     steps:
