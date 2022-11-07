@@ -4,10 +4,16 @@ $CODE = 0
 foreach($script in $scripts)
 {
   $Result = Invoke-Pester -Script $script -PassThru
-  if($Result.FailedCount -gt 0){ $CODE = 1 }
+  if($Result.FailedCount -gt 0)
+  {
+     $CODE = 1 
+  }
 }
 if($CODE.Equals(1))
 {
   Write-Error "DEU RUIM" -ErrorAction Stop
 }
-exit $CODE
+else
+{
+  Write-Output "DEU BOM"
+}
