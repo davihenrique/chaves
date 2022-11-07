@@ -7,7 +7,7 @@ $CODE = 0
 
 foreach($script in $scripts)
 {
-  $Result = Invoke-Pester -Script $script -PassThru
+  $Result = Invoke-Pester -Script $script -PassThru -Quiet
   if($Result.FailedCount -gt 0){ $CODE = 1 }
 }
 exit $CODE
