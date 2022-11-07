@@ -21,5 +21,5 @@ jobs:
           if ($errors) {
               Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
           } else {
-              Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+              Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total."
           }
