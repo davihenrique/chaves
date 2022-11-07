@@ -3,19 +3,11 @@ $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Exte
 
 # Empty collection for errors
 
+$CODE = 0
+
 foreach($script in $scripts)
 {
-
   $Result = Invoke-Pester -Script $script -PassThru
-  if($Result.FailedCount -gt 0){ break }
-
+  if($Result.FailedCount -gt 0){ $CODE = 1 }
 }
-
-if($Result.FailedCount -gt 0)
-{
-  exit 1
-}
-else
-{
- exit 0
-}
+exit $CODE
