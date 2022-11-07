@@ -19,7 +19,10 @@ jobs:
                 $Result = Invoke-Pester -Script $script -PassThru -Quiet
                 if($Result.FailedCount -gt 0){ $CODE = 1 }
               }
-              Write-Error "DEU RUIM" -ErrorAction Stop
+              if($CODE.Equals(1))
+              {
+                Write-Error "DEU RUIM" -ErrorAction Stop
+              }
               exit $CODE
 
   Teste-pwsh:
