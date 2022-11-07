@@ -21,3 +21,14 @@ jobs:
                   exit $LASTEXITCODE
                 }
               }
+              exit 1
+              
+    Powershell:
+    name: Powershell teste
+    runs-on: windows-2019
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Test Scripts
+        shell: pwsh
+        run: exit 1
