@@ -31,7 +31,7 @@ jobs:
         shell: pwsh
         run: exit 1
 
-  test2:
+  Segundo-Teste:
     name: agora vai
     runs-on: ubuntu-latest
     steps:
