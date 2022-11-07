@@ -32,6 +32,7 @@ jobs:
         run: exit 1
 
   test2:
+    name: agora vai
     runs-on: ubuntu-latest
     steps:
       - name: test module
