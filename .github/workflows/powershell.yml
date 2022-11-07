@@ -2,26 +2,6 @@ name: PowerShell Test
 on: push
 
 jobs:
-  Powershell:
-    name: Powershell - Windows 2019
-    runs-on: windows-2019
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Test Scripts
-        shell: pwsh
-        run: ./script.ps1
-
-  Teste-pwsh:
-    name: Powershell teste
-    runs-on: windows-2019
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Test Scripts
-        shell: pwsh
-        run: exit 1
-
   lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
@@ -35,7 +15,9 @@ jobs:
       - name: Lint with PSScriptAnalyzer
         shell: pwsh
         run: |
-          Invoke-ScriptAnalyzer -Path ./scripts/*.ps1 -Recurse -Outvariable issues
+          $scriptDirectory = "./scripts"
+          $scripts = Get-ChildItem -Path $scriptDirectory -Recurse | Where-Object {$_.Extension -eq ".ps1"}
+          Invoke-ScriptAnalyzer -Script $scripts -Recurse -Outvariable issues
           $errors   = $issues.Where({$_.Severity -eq 'Error'})
           $warnings = $issues.Where({$_.Severity -eq 'Warning'})
           if ($errors) {
