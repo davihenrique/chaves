@@ -1,6 +1,6 @@
 ﻿$file = 'd:\chaves\pass.csv'
 
-if ((Teest-Path -Path $file -PathType Leaf)) {
+if ((Test-Path -Path $file -PathType Leaf)) {
     $PASS = Import-Csv -Path $file
     $PASS | Format-Table
     Write-Output "ROWS:" $PASS.Length
