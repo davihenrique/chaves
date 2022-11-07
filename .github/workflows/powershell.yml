@@ -1,12 +1,15 @@
-name: PowerShell Test
+name: PowerShell Scripts Check
 on: push
 
 jobs:
   lint-with-PSScriptAnalyzer:
-    name: Install and run PSScriptAnalyzer
-    runs-on: ubuntu-latest
+    name: PSScriptAnalyzer
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
