@@ -11,7 +11,8 @@ jobs:
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
-          Install-Module PSScriptAnalyzer -ErrorAction Stop
+          Install-Module PSScriptAnalyzer -Force
+          Get-ScriptAnalyzerRule | Sort-Object RuleName | Select-Object CommonName
       - name: Lint with PSScriptAnalyzer
         shell: pwsh
         run: |
