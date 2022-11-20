@@ -1,14 +1,43 @@
-name: SonarQube
-on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: ChavesWorkflow
+
+on: [push]
+
 jobs:
   build:
-    name: Build
+  name: Build
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x','3.1.x','2.1.x']
+  
+  steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ matrix.dotnet-version }}
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+  tests:
+    needs: build
+    name: Running Tests
+    runs-on: ubuntu-22.04
+
+  steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core SDK 6.0.x
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+
+  sonarqube:
+    needs: tests
+    name: Running SonarQube
     runs-on: windows-latest
     steps:
       - name: Set up JDK 11
