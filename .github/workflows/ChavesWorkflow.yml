@@ -22,9 +22,9 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
 
-  build:
+  buildLinux:
     needs: codeql
-    name: Build
+    name: Build Ubuntu 22.04
     runs-on: ubuntu-22.04
     strategy:
       matrix:
@@ -40,9 +40,27 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
+  buildWindows:
+    needs: codeql
+    name: Build Windows 2019
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
   tests:
-    needs: build
-    name: Running Tests
+    needs: ['buildLinux','buildWindows']
+    name: Tests
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
