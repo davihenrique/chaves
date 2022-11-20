@@ -11,8 +11,7 @@ goto Saida;
                 System.Console.WriteLine("Teste");
 Saida:
         return Console.ReadLine();
-
-        }
+        
         
 
     }

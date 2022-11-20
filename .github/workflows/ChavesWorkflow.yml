@@ -75,7 +75,6 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
   codeql:
-    needs: build
     name: CodeQL
     runs-on: ubuntu-latest
 
