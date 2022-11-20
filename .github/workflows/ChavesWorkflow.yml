@@ -4,21 +4,21 @@ on: [push]
 
 jobs:
   build:
-  name: Build
-  runs-on: ubuntu-22.04
-  strategy:
-    matrix:
-      dotnet-version: ['6.0.x','3.1.x','2.1.x']
-  steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+    name: Build
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        dotnet-version: ['6.0.x','3.1.x','2.1.x']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
   tests:
     needs: build
