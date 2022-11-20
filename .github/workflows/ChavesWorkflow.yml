@@ -5,10 +5,10 @@ on: [push]
 jobs:
   build:
   name: Build
-    runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        dotnet-version: ['6.0.x','3.1.x','2.1.x']
+  runs-on: ubuntu-22.04
+  strategy:
+    matrix:
+      dotnet-version: ['6.0.x','3.1.x','2.1.x']
   
   steps:
     - uses: actions/checkout@v3
