@@ -1,0 +1,75 @@
+$folderChaves = 'd:\ChavesData'
+$OutFile = "d:\ChavesData\norton.csv"
+
+if(-not(Test-Path -Path $folderChaves))
+{
+    mkdir $folderChaves
+}
+
+ ForEach-Object {
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    },
+    [PsCustomObject]@{
+        Username = "cursos.exemplo.com.br"
+        Password = "https://cursos.exemplo.com.br/"
+        Title = "bernardo_otavio_sales@ft.unicamp.br"
+        "Login URL" = "pDh@X3I74$Nz"
+        Notes = "pDh@X3I74$Nz"
+    }
+
+} | Export-Csv -Path $Outfile -UseQuotes AsNeeded -NoTypeInformation;
+
+Write-Host "MOCK CREATED `u{2705}"
+
+if ((Test-Path -Path $OutFile -PathType Leaf)) 
+{
+    $PASS = Import-Csv -Path $OutFile
+    $PASS | Format-Table
+    Write-Host "ROWS:" $PASS.Length
+    Write-Host $OutFile
+    
+ }
+ else 
+ {
+    Write-Host "NO FILE"
+ }
