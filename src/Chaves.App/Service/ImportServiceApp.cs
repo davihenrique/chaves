@@ -1,4 +1,5 @@
-﻿using Chaves.App.Helpers;
+using System;
+using Chaves.App.Helpers;
 using Chaves.App.Read;
 using Chaves.App.Screens;
 using Chaves.Core.Enums;
@@ -21,7 +22,7 @@ namespace Chaves.App.Service
                 result = ImportServiceCore.Import(readTerminal);
 
             if (result.Msg == ImporServiceSatus.Sucess)
-                Screen.TelaResultSucess(locateXml);
+                Screen.TelaResultSucess(locateXml, result.Count);
 
             if (result.Msg == ImporServiceSatus.Fail)
                 Screen.TelaResultFalha(locateXml);
@@ -29,6 +30,7 @@ namespace Chaves.App.Service
             if (result.Msg == ImporServiceSatus.NoOne)
                 Screen.TelaResultNoOne(locateXml);
 
+            Console.ReadLine();
         }
     }
 }

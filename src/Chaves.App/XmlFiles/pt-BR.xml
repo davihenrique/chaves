@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <Locate>
     <Logo>
@@ -12,14 +12,28 @@
     </Logo>
     <MsgInicial>Bem Vindo ao CHAVES</MsgInicial>
     <Opcoes>
-        <Exibir>[P]esquisar Senha | [C]adrastar | [I]mportar: </Exibir>
+        <Exibir>[P]esquisar | [C]adastrar | [I]mportar | [S]air: </Exibir>
         <Pesquisar>P</Pesquisar>
-        <Cadrastar>C</Cadrastar>
+        <Cadastrar>C</Cadastrar>
         <Importar>I</Importar>
+        <Sair>S</Sair>
     </Opcoes>
-	<SrcFile>Caminho: </SrcFile>
-    <MsgFinal>Até mais...</MsgFinal>
-    <FailScream>Falha ao Import !!!</FailScream>
-    <SuccessScreen>Importado</SuccessScreen>
-    <NoOneScreen>Nenhum</NoOneScreen>
+    <SrcFile>Caminho do arquivo: </SrcFile>
+    <Pesquisar>
+        <PalavraChave>Palavra-chave: </PalavraChave>
+    </Pesquisar>
+    <Cadastrar>
+        <Servico>Servico: </Servico>
+        <Usuario>Usuario: </Usuario>
+        <Senha>Senha: </Senha>
+        <PalavraChave>Palavra-chave: </PalavraChave>
+    </Cadastrar>
+    <MsgFinal>Ate mais...</MsgFinal>
+    <FailScream>Falha ao importar!</FailScream>
+    <SuccessScreen>Importado com sucesso</SuccessScreen>
+    <NoOneScreen>Nenhum registro encontrado.</NoOneScreen>
+    <CadastradoScreen>Cadastrado com sucesso!</CadastradoScreen>
+    <PesquisarVazio>Nenhuma senha armazenada.</PesquisarVazio>
+    <PressEnter>Pressione Enter para continuar...</PressEnter>
+    <Encrypted>CRIPTOGRAFADA</Encrypted>
 </Locate>

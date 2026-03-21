@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -12,14 +12,13 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
 {
     public static partial class ImportServiceCsv
     {
-
         public static IEnumerable<Password> GetPassDefault(SourcePath source)
         {
             try
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<Password>().AsEnumerable().Distinct(new DefaultPasswordComparer());
+                var pass = csv.GetRecords<Password>().Distinct(new DefaultPasswordComparer()).ToList();
                 csv.Dispose();
                 return pass;
             }

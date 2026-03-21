@@ -1,33 +1,27 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Linq;
 using Chaves.Data.Models;
 using Chaves.Service.ImportPasswords;
 
 namespace Chaves.Service.RecordPasswords
 {
-    internal static partial class RecordPasswordsService
+    public static partial class RecordPasswordsService
     {
         public static bool Record(IEnumerable<Password> passwords)
         {
-
-            var passwordStored = GetPasswords();
-
             CheckFolderChaves();
             ExistFile();
-
-
-
             RecordCsv(passwords);
-
             return true;
         }
 
-        private static IEnumerable<Password> GetPasswords()
+        public static IEnumerable<Password> GetPasswords()
         {
-            var file = "c:\\chaves\\pass.csv";
+            CheckFolderChaves();
+            ExistFile();
 
-            var passwords = ImportPassService.ExecuteWithReturnPass(file);
-
-            return passwords;
+            var passwords = ImportPassService.ExecuteWithReturnPass(FilePath);
+            return passwords.ToList();
         }
     }
 }

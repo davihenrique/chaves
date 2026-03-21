@@ -3,6 +3,6 @@
     public class SourcePath
     {
         public bool Valid { get; set; }
-        public string Src { get; set; }
+        public string Src { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -8,30 +8,28 @@ using CsvHelper.Configuration;
 
 namespace Chaves.Service.RecordPasswords
 {
-    internal static partial class RecordPasswordsService
+    public static partial class RecordPasswordsService
     {
+        private const string FolderPath = @"c:\chaves";
+        private const string FilePath = @"c:\chaves\pass.csv";
+
         public static bool CheckFolderChaves()
         {
-            var diretory = "c:\\chaves";
-            if (!Directory.Exists(diretory))
-                Directory.CreateDirectory("C:\\chaves");
-
+            if (!Directory.Exists(FolderPath))
+                Directory.CreateDirectory(FolderPath);
 
             return true;
         }
 
         public static bool ExistFile()
         {
-            var file = "c:\\chaves\\pass.csv";
-
-            if (File.Exists(file))
+            if (File.Exists(FilePath))
                 return true;
 
-            var writer = new StreamWriter(file);
+            var writer = new StreamWriter(FilePath);
             var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-            var pass = new List<Password>();
-
-            csv.WriteRecords(pass);
+            csv.WriteHeader<Password>();
+            csv.NextRecord();
             csv.Flush();
             csv.Dispose();
 
@@ -45,18 +43,16 @@ namespace Chaves.Service.RecordPasswords
                 HasHeaderRecord = false,
             };
 
-            var stream = File.Open("c:\\chaves\\pass.csv", FileMode.Append);
+            var stream = File.Open(FilePath, FileMode.Append);
             var writer = new StreamWriter(stream);
             var csv = new CsvWriter(writer, config);
 
-
             foreach (var p in passwords)
-                p.Id = new Guid();
+                p.Id = Guid.NewGuid();
 
             csv.WriteRecords(passwords);
             csv.Flush();
             csv.Dispose();
         }
-
     }
 }

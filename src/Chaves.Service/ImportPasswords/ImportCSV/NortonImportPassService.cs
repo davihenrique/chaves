@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -18,7 +18,7 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
             {
                 var reader = new StreamReader(source.Src);
                 var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-                var pass = csv.GetRecords<NortonPassword>().AsEnumerable().Distinct(new NortonPasswordComparer());
+                var pass = csv.GetRecords<NortonPassword>().Distinct(new NortonPasswordComparer()).ToList();
                 csv.Dispose();
                 return pass;
             }

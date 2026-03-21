@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <Locate>
     <Logo>
@@ -12,14 +12,28 @@
     </Logo>
     <MsgInicial>Welcome To CHAVES</MsgInicial>
     <Opcoes>
-        <Exibir>[S]earch Password | [R]egister | [I]mport: </Exibir>
+        <Exibir>[S]earch | [R]egister | [I]mport | E[x]it: </Exibir>
         <Pesquisar>S</Pesquisar>
-        <Cadrastar>R</Cadrastar>
+        <Cadastrar>R</Cadastrar>
         <Importar>I</Importar>
+        <Sair>X</Sair>
     </Opcoes>
-	<SrcFile>Source: </SrcFile>
+    <SrcFile>File path: </SrcFile>
+    <Pesquisar>
+        <PalavraChave>Key: </PalavraChave>
+    </Pesquisar>
+    <Cadastrar>
+        <Servico>Service: </Servico>
+        <Usuario>Username: </Usuario>
+        <Senha>Password: </Senha>
+        <PalavraChave>Key: </PalavraChave>
+    </Cadastrar>
     <MsgFinal>See You...</MsgFinal>
-    <FailScream>Import Fail !!!</FailScream>
-    <SuccessScreen>Success</SuccessScreen>
-    <NoOneScreen>No One</NoOneScreen>
+    <FailScream>Import Failed!</FailScream>
+    <SuccessScreen>Imported successfully</SuccessScreen>
+    <NoOneScreen>No records found.</NoOneScreen>
+    <CadastradoScreen>Registered successfully!</CadastradoScreen>
+    <PesquisarVazio>No passwords stored yet.</PesquisarVazio>
+    <PressEnter>Press Enter to continue...</PressEnter>
+    <Encrypted>ENCRYPTED</Encrypted>
 </Locate>

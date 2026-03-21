@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using Chaves.Data.Enums;
 using Chaves.Service.Dto;
@@ -14,18 +14,21 @@ namespace Chaves.Service.Helpers
         {
             try
             {
-                var firstLine = File.ReadAllLines(source.Src).First();
+                var lines = File.ReadAllLines(source.Src);
+                if (!lines.Any())
+                    return null;
+
+                var firstLine = lines.First();
 
                 var jsonText = new JsonTextReader(File.OpenText(@"Jsons\ServiceColumnName.json"));
                 var json = (JObject)JToken.ReadFrom(jsonText);
 
-                if (firstLine.Equals(json["Default"].Value<string>()))
+                if (firstLine.Equals(json["Default"]?.Value<string>()))
                     return ServicesSources.Default;
-                else if (firstLine.Equals(json["Google"].Value<string>()))
+                else if (firstLine.Equals(json["Google"]?.Value<string>()))
                     return ServicesSources.Google;
-                else if (firstLine.Equals(json["Norton"].Value<string>()))
+                else if (firstLine.Equals(json["Norton"]?.Value<string>()))
                     return ServicesSources.Norton;
-
             }
             catch (FileNotFoundException)
             {
