@@ -2,6 +2,10 @@
 {
     internal static class ReadTerminalReadApp
     {
-        public static string? Read() => Console.ReadLine();
+
+
+        public static string? Read() => Console.ReadLine();      
+        
+
     }
 }
