@@ -20,7 +20,19 @@ namespace Chaves.App.Screens
         internal static void TelaResultFalha(Locate locate)
         {
             Print.QubraLinha();
-            Print.PrintTxtN(locate, "/Locate/Falha");
+            Print.PrintTxtN(locate, "/Locate/FailScream");
+        }
+
+        internal static void TelaResultSucess(Locate locate)
+        {
+            Print.QubraLinha();
+            Print.PrintTxtN(locate, "/Locate/SuccessScreen");
+        }
+
+        internal static void TelaResultNoOne(Locate locate)
+        {
+            Print.QubraLinha();
+            Print.PrintTxtN(locate, "/Locate/NoOneScreen");
         }
     }
 }

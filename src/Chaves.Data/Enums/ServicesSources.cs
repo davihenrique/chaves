@@ -2,6 +2,7 @@
 {
     public enum ServicesSources
     {
+        Default,
         Google,
         Norton
     }

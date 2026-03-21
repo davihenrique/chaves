@@ -19,5 +19,7 @@
     </Opcoes>
 	<SrcFile>Source: </SrcFile>
     <MsgFinal>See You...</MsgFinal>
-    <Falha>Import Fail !!!</Falha>
+    <FailScream>Import Fail !!!</FailScream>
+    <SuccessScreen>Success</SuccessScreen>
+    <NoOneScreen>No One</NoOneScreen>
 </Locate>

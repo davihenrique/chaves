@@ -1,4 +1,4 @@
-﻿namespace Chaves.Core.ViewModel.Enums
+﻿namespace Chaves.Core.Enums
 {
     public enum ImporServiceSatus
     {

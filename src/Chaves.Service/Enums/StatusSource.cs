@@ -1,6 +1,6 @@
-﻿namespace Chaves.Data.Enums
+﻿namespace Chaves.Service.Enums
 {
-    internal enum StatusSource
+    public enum StatusSource
     {
         Success,
         NotFound,

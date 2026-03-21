@@ -7,12 +7,12 @@ using Chaves.Service.Dto;
 using Chaves.Service.Helpers;
 using Chaves.Service.ImportPasswords.Perfil;
 
-namespace Chaves.Service.ImportPasswords
+namespace Chaves.Service.ImportPasswords.ImportCSV
 {
-    public static partial class ImportPassService
+    public static partial class ImportServiceCsv
     {
 
-        public static IEnumerable<Password> GetPass(SourcePath source)
+        public static IEnumerable<Password> CSVImport(SourcePath source)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -23,6 +23,7 @@ namespace Chaves.Service.ImportPasswords
 
             records = SwitchServicesSources.Verify(source) switch
             {
+                ServicesSources.Default => GetPassDefault(source),
                 ServicesSources.Google => GetPassGoogleChrome(source),
                 ServicesSources.Norton => GetPassNorton(source),
                 _ => null,
@@ -31,7 +32,9 @@ namespace Chaves.Service.ImportPasswords
             if (records is null)
                 return Enumerable.Empty<Password>();
 
-            return config.CreateMapper().Map<List<Password>>(records.ToList());
+            var import = config.CreateMapper().Map<List<Password>>(records.ToList());
+
+            return import;
         }
     }
 }
