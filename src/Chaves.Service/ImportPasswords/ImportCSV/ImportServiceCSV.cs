@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Chaves.Data.Enums;
 using Chaves.Data.Models;
 using Chaves.Service.Dto;
 using Chaves.Service.Helpers;
-using Chaves.Service.ImportPasswords.Perfil;
 
 namespace Chaves.Service.ImportPasswords.ImportCSV
 {
@@ -14,11 +12,6 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
 
         public static IEnumerable<Password> CSVImport(SourcePath source)
         {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<ImportMapperPerfil>();
-            });
-
             var records = Enumerable.Empty<object>();
 
             records = SwitchServicesSources.Verify(source) switch
@@ -32,9 +25,22 @@ namespace Chaves.Service.ImportPasswords.ImportCSV
             if (records is null)
                 return Enumerable.Empty<Password>();
 
-            var import = config.CreateMapper().Map<List<Password>>(records.ToList());
-
-            return import;
+            return SwitchServicesSources.Verify(source) switch
+            {
+                ServicesSources.Google => records.Cast<GooglePassword>().Select(g => new Password
+                {
+                    Service = g.Name,
+                    User = g.Username,
+                    Pass = g.Password
+                }),
+                ServicesSources.Norton => records.Cast<NortonPassword>().Select(n => new Password
+                {
+                    Service = n.Title,
+                    User = n.Username,
+                    Pass = n.Password
+                }),
+                _ => records.Cast<Password>()
+            };
         }
     }
 }
